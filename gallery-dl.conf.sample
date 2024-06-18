@@ -1,0 +1,10 @@
+{
+    "extractor": {
+        "instagram": {
+          "api": "graphql"
+        },
+        "reddit": {
+          "client-id" : "your-reddit-client-id"
+        }
+    }
+}
