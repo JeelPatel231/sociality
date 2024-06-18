@@ -5,4 +5,8 @@ venv/
 *.env
 
 *.session
+*.session-journal
 *.conf
+
+# spotify credentials cache
+credentials.json
