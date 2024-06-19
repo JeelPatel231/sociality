@@ -8,6 +8,9 @@ from gallery_dl.job import Job
 from pyrogram.types import InputMediaPhoto, InputMediaVideo
 from gallery_dl.path import PathFormat
 from gallery_dl.postprocessor.common import PostProcessor
+from .gallery_dl_config import setup
+
+setup() #this will setup gallery dl config
 
 class UploadGroupPostProcessor(PostProcessor):
 

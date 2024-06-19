@@ -1,9 +1,6 @@
 from pyrogram import Client
 from dotenv import dotenv_values
-from gallery_dl.config import load
 import os
-
-load(files=['gallery-dl.conf']) # load gallery-dl config from current directory explicitly
 
 config = {
   **dotenv_values('.development.env'), # development
