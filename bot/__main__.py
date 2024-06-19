@@ -1,14 +1,19 @@
-from pyrogram import idle
+from pyrogram.types import BotCommand
+from pyrogram.sync import idle
 from bot import app
 from .plugins import *
 
-def main():
+async def main():
     #start the client first
-    app.start()
+    await app.start()
     print("APP IS RUNNING")
+    
+    await app.set_bot_commands([
+        BotCommand('ping', 'To check latency and also if bot is alive or dead.')
+    ])
 
     # keep running
-    idle()
+    await idle()
 
 if __name__ == "__main__":
-    main()
+    app.run(main())

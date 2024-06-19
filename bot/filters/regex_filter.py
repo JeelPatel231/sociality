@@ -1,5 +1,3 @@
-
-from typing import List
 from pyrogram.filters import create
 from pyrogram.types import Message
 import re
