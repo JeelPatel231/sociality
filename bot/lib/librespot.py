@@ -1,5 +1,5 @@
 from bot import config
-from librespot.core import Session, CdnManager, PlayableContentFeeder
+from librespot.core import Session, CdnManager
 from librespot.metadata import TrackId
 from librespot.audio.decoders import AudioQuality, VorbisOnlyAudioQuality
 from librespot.audio import CdnFeedHelper, Metadata
