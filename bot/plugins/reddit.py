@@ -1,11 +1,8 @@
-import re
 from bot import app
 from pyrogram.client import Client
-from gallery_dl.job import DownloadJob
 from pyrogram.types.messages_and_media import Message
 from bot.filters.regex_filter import create_regex_filter
-from bot.lib.gallery_dl_hook import UploadGroupPostProcessor
-from bot.filters.regex_filter import create_regex_filter
+from bot.lib.gallery_dl_tgbot import download_with_gallerydl
 
 # Patterns are kanged from gallery_dl
 
@@ -34,8 +31,9 @@ is_reddit_link = create_regex_filter(SUBREDDIT_PATTERN, HOME_PATTERN, USER_PATTE
 
 @app.on_message(filters=is_reddit_link)
 async def _(client: Client, msg: Message):
-  reply = await msg.reply_text('Handling Reddit Link', quote=True)
-  dl_job = DownloadJob(msg.text)
-  UploadGroupPostProcessor(dl_job, msg)
-  dl_job.run()
+  handling_reply = await msg.reply_text('Handling Reddit Link', quote=True) 
+  
+  await download_with_gallerydl(msg)
 
+  await handling_reply.delete()
+  
