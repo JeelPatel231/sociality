@@ -8,9 +8,6 @@ INSTAGRAM_LINK = r"(?:https?://)?(?:www\.)?instagram\.com"
 
 is_instagram_link = create_regex_filter(INSTAGRAM_LINK)
 
-
-
-
 @app.on_message(filters=is_instagram_link)
 async def _(client: Client, msg: Message):
   handling_reply = await msg.reply_text('Handling Instagram Link', quote=True) 

@@ -10,3 +10,5 @@ venv/
 
 # spotify credentials cache
 credentials.json
+
+*cookies.txt
