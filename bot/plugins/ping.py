@@ -2,9 +2,9 @@ from bot import app
 from datetime import datetime
 from pyrogram.client import Client
 from pyrogram.types import Message
-from bot.filters.text_filter import text_filter
+from bot.filters.command_filter import command
 
-@app.on_message(filters=text_filter('/ping'))
+@app.on_message(filters=command('ping'))
 async def handle_ping(client: Client, msg: Message):
   start = datetime.now()
   ping_mess = await client.send_message(msg.chat.id, "ping test!")

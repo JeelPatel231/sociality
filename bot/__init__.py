@@ -13,6 +13,10 @@ class SocialityBot(Client):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
+        # cache the username to handle commands
+        with self:
+            self.me = self.get_me()
+
     # TODO: override on_message and use try catch
     # for filtering exceptions and responding using bot
 
