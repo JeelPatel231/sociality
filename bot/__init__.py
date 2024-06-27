@@ -3,12 +3,20 @@ from dotenv import dotenv_values
 import os
 
 config = {
-  **dotenv_values('.development.env'), # development
-  **dotenv_values('.env'), # production
-  **os.environ,  # override loaded values with environment variables
+    **dotenv_values(".development.env"),  # development
+    **dotenv_values(".env"),  # production
+    **os.environ,  # override loaded values with environment variables
 }
 
-app = Client(
+
+class SocialityBot(Client):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+    # TODO: override on_message and use try catch
+    # for filtering exceptions and responding using bot
+
+app = SocialityBot(
     name="Sociality",
     bot_token=config["BOT_TOKEN"],
     api_id=config["API_ID"],
