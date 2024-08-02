@@ -3,7 +3,7 @@ from pyrogram.types import Message
 from .gallery_dl_hook import UploadGroupPostProcessor
 from gallery_dl.job import DownloadJob
 import mimetypes
-from pyrogram.types import InputMediaPhoto, InputMediaVideo
+from pyrogram.types import InputMediaPhoto, InputMediaVideo, InputMediaAudio
 import os
 
 def mimetype_to_telegram(path: str):
@@ -16,6 +16,9 @@ def mimetype_to_telegram(path: str):
   
   if _type.startswith('video'):
     return InputMediaVideo(path)
+  
+  if _type.startswith('audio'):
+    return InputMediaAudio(path)
     
   raise Exception(f'Unhandled Mime Type: {_type} : {_encoding}')
 
